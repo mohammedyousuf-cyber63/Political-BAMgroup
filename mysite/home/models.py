@@ -38,8 +38,7 @@ class Question(models.Model):
 # The `Choice` class represents a choice option for a question with attributes like choice text and
 # number of votes.
 class Choice(models.Model):
-    question = models.ForeignKey(Question, on_delete=models.CASCADE)
-        """
+    """
         The above code snippet defines a Choice model with fields for choice text, votes, and a foreign
         key to a Question model.
         :return: The `__str__` method in the provided code snippet is returning the `choice_text`
@@ -47,6 +46,8 @@ class Choice(models.Model):
         representation of the object when it is printed or displayed as a string. In this case, it will
         return the `choice_text` value of the Choice instance.
         """
+    question = models.ForeignKey(Question, on_delete=models.CASCADE)
+        
     choice_text = models.CharField(max_length=200)
     votes = models.IntegerField(default=0)
 
